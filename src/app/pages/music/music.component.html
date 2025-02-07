@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="form-column">
-    <form-music></form-music>
+    <app-form-music></app-form-music>
   </div>
 
   <div class="list-column">
@@ -11,7 +11,7 @@
     } @else {
       <ul>
         @for (item of dataSource; track item) {
-          <li>{{ item.Name }} - {{ item.Description }} <button type="submit" (click)="onSubmit(item.Id)">Eliminar</button></li>
+          <li>{{ item.Title }} - {{ item.Gender }} <button type="submit" (click)="onSubmit(item.Id)">Eliminar</button></li>
         }
       </ul>
     }

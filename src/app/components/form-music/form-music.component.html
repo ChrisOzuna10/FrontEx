@@ -1,1 +1,34 @@
-<p>form-music works!</p>
+<form [formGroup]="musicForm" (ngSubmit)="onSubmit()" class="music-form">
+    <div class="form-group">
+      <label for="name">Nombre de la canción:</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="Ej: Bohemian Rhapsody"
+      />
+      <div *ngIf="musicForm.get('name')?.invalid && musicForm.get('name')?.touched" class="error-message">
+        <div *ngIf="musicForm.get('name')?.errors?.['required']">
+          <span>El nombre es requerido.</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="genre">Género:</label>
+      <input
+        type="text"
+        id="genre"
+        formControlName="genre"
+        placeholder="Ej: Rock"
+      />
+      <div *ngIf="musicForm.get('genre')?.invalid && musicForm.get('genre')?.touched" class="error-message">
+        <div *ngIf="musicForm.get('genre')?.errors?.['required']">
+          <span>El género es requerido.</span>
+        </div>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="musicForm.invalid" class="submit-button">Guardar</button>
+  </form>
+  
